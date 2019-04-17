@@ -23,7 +23,7 @@ digitalWrite(pin,HIGH);
 
 void Solenoid::on_pwm_reduce(uint8_t pin, uint16_t pwm_value, uint16_t pwm_reduce_value, unsigned long millis_hold) {
 
-if(delay.wait_until(millis_hold) == true) {
+if(delay_state.wait_until(millis_hold) == true) {
 analogWrite(pin,pwm_reduce_value);
 } else {
 analogWrite(pin,pwm_value);

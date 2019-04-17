@@ -18,13 +18,13 @@ _input = digitalRead(pin);
 
 //reset debounce clock to current millis
 if(_input != _last_edge) {
-debounce_clock = millis();
+_debounce_clock = millis();
 }
 
-if((millis() - debounce_clock) > range_millis) {
+if((millis() - _debounce_clock) > range_millis) {
 
-     if(_input != current_edge) {
-     current_edge = _input;
+     if(_input != _current_edge) {
+     _current_edge = _input;
 
          if(_input == LOW) {
          _edge_detected = true;

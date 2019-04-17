@@ -1,9 +1,10 @@
-#ifndef "Flipper.h"
-#define "Flipper.h"
+#ifndef Flipper_H
+#define Flipper_H
 
-#define "Filter.h"
-#define "Solenoid.h"
-//#define "SerialMessage.h"
+#include "Arduino.h"
+#include "Filter.h"
+#include "Solenoid.h"
+//#include "SerialMessage.h"
 
 class Flipper {
 

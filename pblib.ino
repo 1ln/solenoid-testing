@@ -4,7 +4,7 @@ const int inputs_pullup[4] = { 22,25,26,27 };
 const int inputs[2] = { A2,A3 };
 const int outputs[2] = { 12,11 };
 
-Configure config;
+SystemConfigure config;
 
 //const int tr_switches[5] = { 25,26,27,A2,A3 };
 
@@ -15,9 +15,9 @@ void setup() {
 
 Serial.begin(115200);
 
-config.set_pins_input_pullup(inputs_pullup,6);
-config.set_pins_input(inputs,2);
-config.set_pins_output(outputs,4);
+//config.set_pins_input_pullup(inputs_pullup,6);
+//config.set_pins_input(inputs,2);
+//config.set_pins_output(outputs,4);
 
 //config.startup_wait(1000);
 

@@ -1,9 +1,11 @@
-#ifndef "pblib_H"
-#define "pblib_H"
+#ifndef pblib_H
+#define pblib_H
 
-#define "Arduino.h"
+#include "Arduino.h"
 
-#define "Solenoid.h"
-#define "Filter.h"
-#define "Configure.h"
-#define "DelayState.h"
+#include "Solenoid.h"
+#include "Filter.h"
+#include "SystemConfigure.h"
+#include "DelayState.h"
+
+#endif

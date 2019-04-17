@@ -1,10 +1,10 @@
 #include "Arduino.h"
 #include "DelayState.h"
 
-DelayState()::DelayState() {
+DelayState::DelayState() {
 
-_limit = 0;
-_limit_reached = false;
+//_limit = 0;
+//_limit_reached = false;
 
 }
 
