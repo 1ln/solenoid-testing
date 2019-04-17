@@ -3,6 +3,9 @@
 
 DelayState()::DelayState() {
 
+_limit = 0;
+_limit_reached = false;
+
 }
 
 bool DelayState::wait_until(unsigned long interval) {

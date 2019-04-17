@@ -9,8 +9,8 @@ bool wait_until(unsigned long interval);
 
 private:
 
-bool _limit reached = false;
-unsigned long _limit = 0;
+bool _limit reached;
+unsigned long _limit;
 
 };
 
