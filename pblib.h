@@ -7,5 +7,6 @@
 #include "Filter.h"
 #include "SystemConfigure.h"
 #include "DelayState.h"
+#include "Flipper.h"
 
 #endif
