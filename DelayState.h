@@ -9,12 +9,12 @@ public:
 
 DelayState();
 
-bool wait_until(unsigned long interval);
+bool wait_interval(unsigned long interval);
 
 private:
 
-bool _limit_reached = true;
-unsigned long _limit = 0;
+bool _limit_reached;
+unsigned long _limit;
 
 };
 

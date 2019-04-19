@@ -8,13 +8,15 @@ SystemConfigure config;
 
 //const int tr_switches[5] = { 25,26,27,A2,A3 };
 
-Flipper flipper_left(16,2);
+Flipper flipper_left(16,18);
 
 void setup() {
 
 Serial.begin(115200);
-
-config.set_pin_pwm_esp32(2,0,5000,8);
+//pinMode(18,OUTPUT);
+//config.set_pin_pwm_esp32(18,0,5000,8);
+ledcSetup(0,12000,8);
+ledcAttachPin(18,0);
 config.set_pin_input_pullup(16);
 
 flipper_left.serial_activate();

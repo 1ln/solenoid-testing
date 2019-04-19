@@ -6,7 +6,7 @@ SystemConfigure::SystemConfigure() {
 }
 
 void SystemConfigure::set_pin_pwm_esp32(uint8_t pin,uint8_t channel,double freq,uint8_t res) {
-ledcSetup(pin,freq,res);
+ledcSetup(channel,freq,res);
 ledcAttachPin(pin,channel);
 }
 
