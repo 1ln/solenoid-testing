@@ -5,6 +5,14 @@ System::System() {
 
 }
 
+void System::set_wifi_sta_on() {
+WiFi.mode(WIFI_MODE_STA);
+}
+
+String System::get_node_mac(void) {
+return String(WiFi.macAddress());
+}
+
 void System::set_pin_pwm_esp32(uint8_t pin,uint8_t channel,double freq,uint8_t res) {
 ledcSetup(channel,freq,res);
 ledcAttachPin(pin,channel);

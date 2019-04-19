@@ -20,7 +20,8 @@ flipper_left.serial_activate();
 sys.set_pins_input_pullup(inputs_pullup,3);
 sys.set_pins_pwm_esp32(outputs,2,0,5000,8);
 
-//config.startup_wait(1000);
+sys.set_wifi_sta_on();
+Serial.println(sys.get_node_mac());
 
 }
 
