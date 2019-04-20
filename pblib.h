@@ -14,5 +14,8 @@
 #include "DelayState.h"
 #include "Flipper.h"
 #include "Trough.h"
+#include "PopBumper.h"
+#include "SlingShot.h"
+#include "Kicker.h"
 
 #endif
