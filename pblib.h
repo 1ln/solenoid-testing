@@ -17,5 +17,6 @@
 #include "PopBumper.h"
 #include "SlingShot.h"
 #include "Kicker.h"
+#include "DropTarget.h"
 
 #endif

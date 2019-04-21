@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "SlingShot.h"
 
-SlingShot::Slingshot(uint8_t input_pin,uint8_t output_pin) {
+SlingShot::SlingShot(uint8_t input_pin,uint8_t output_pin) {
 
 _input = input_pin;
 _output = output_pin;
