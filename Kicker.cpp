@@ -19,9 +19,9 @@ void Kicker::activate() {
 _input_filter = filter.detect_edge(_input,12);
 
 if(_input_filter == true) {
-solenoid.on_pwm_esp32(0,225);
+solenoid.on_pwm();
 } else {
-solenoid.off_pwm_esp32(0);
+solenoid.off_pwm();
 }
 
 if(_serial_activated == true) {

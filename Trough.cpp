@@ -45,9 +45,9 @@ return _count;
 void Trough::loop_activate() {
 
 if((inv_count() >= _num_pins) && _jam != true) {
-solenoid.on_pwm_esp32(0,255);
+solenoid.on_pwm();
 } else {
-solenoid.off_pwm_esp32(0);
+solenoid.off_pwm();
 }
 
 }
@@ -64,7 +64,7 @@ return _jam;
 
 void Trough::activate_solenoid() {
 
-solenoid.on_pwm_esp32(0,255);
-solenoid.off_pwm_esp32(0);
+solenoid.on_pwm();
+solenoid.off_pwm();
 
 }

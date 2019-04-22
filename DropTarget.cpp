@@ -22,10 +22,10 @@ void DropTarget::activate() {
 for(int i = 0; i < _num_pins; ++i) {
 
     if(filter.detect_edge(_pins[i],15) == false) {
-    solenoid.on_pwm_esp32(0,235);
+    solenoid.on_pwm();
     Serial.println("test");
     } else {
-    solenoid.off_pwm_esp32(0);
+    solenoid.off_pwm();
     }
     
 }
