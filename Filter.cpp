@@ -14,6 +14,11 @@ _debounce_clock = 0;
 _count = 0;
 _edge_detected = false;
 
+_ir_input = 0;
+_ir_value = 0;
+_bit_value = 0;
+_value_ir_compare = 0;
+
 }
 
 bool Filter::edge_status(bool edge) {
@@ -68,6 +73,42 @@ if((millis() - _debounce_clock) > range_millis) {
 _last_edge = _input;
 return _edge_detected;
 
+}
+
+void Filter::set_ir_compare_value(uint16_t compare_value) {
+_value_ir_compare = compare_value;
+} 
+
+void Filter::set_ir_bit_value(bool bit_value) {
+
+_bit_value = bit_value;
+
+}
+
+bool Filter::ir_read(uint8_t pin) {
+
+_ir_input = analogRead(pin);
+
+if(_ir_input < _value_ir_compare) {
+_ir_value = true;
+} else {
+_ir_value = false;
+}
+
+return _ir_value;
+
+}
+
+bool Filter::ir_digital_read(uint8_t pin) {
+
+_ir_input = digitalRead(pin);
+
+if(_ir_input > _bit_value) {
+_ir_value = true;
+} else {
+_ir_value = false;
+}
+return _ir_value;
 }
 
 int Filter::get_count() {

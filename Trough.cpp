@@ -1,7 +1,7 @@
 #include "Arduino.h"
 #include "Trough.h"
 
-Trough::Trough(uint8_t *input_pins,uint8_t num_pins,uint8_t output_pin,uint8_t jam_pin) {
+Trough::Trough(uint8_t *input_pins,uint8_t num_pins,uint8_t output_pin,uint8_t kickout_ir_pin,uint8_t jam_ir_pin) {
 
 _output = output_pin;
 
@@ -13,7 +13,8 @@ _count = 0;
 _filter_results[num_pins];
 filter = new Filter();
 
-_jam_pin = jam_pin;
+_kickout_ir_pin = kickout_ir_pin;
+_jam_ir_pin = jam_ir_pin;
 
 memcpy(&_pins,&input_pins,sizeof _pins);
 
@@ -23,6 +24,16 @@ void Trough::serial_activate() {
 
 _serial_activated = true;
 
+}
+
+bool Trough::kickout_ir_active() {
+
+if(kickout_filter.ir_digital_read(_kickout_ir_pin) == true) {
+_kickout = true;
+} else {
+_kickout = false;
+}
+return _kickout;
 }
 
 uint8_t Trough::inv_count() {
@@ -52,9 +63,9 @@ solenoid.off_pwm();
 
 }
 
-bool Trough::jam_activated() {
+bool Trough::jam_ir_active() {
 
-if(jam_filter.detect_edge(_jam_pin,15) == true) {
+if(jam_filter.ir_digital_read(_jam_ir_pin) == true) {
 _jam = true;
 } else {
 _jam = false;
