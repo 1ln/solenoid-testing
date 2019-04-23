@@ -19,8 +19,9 @@ Serial.begin(115200);
 //sys.set_pin_pwm_esp32(18,0,5000,8);
 //sys.set_pin_input_pullup(16);
 //flipper_left.serial_activate();
+//sys.set_esp32_pwm_config(0,5000,8);
 sys.set_pins_input_pullup(inputs_pullup,4);
-sys.set_pins_pwm_esp32(outputs,2,0,5000,8);
+sys.set_pins_pwm(outputs,2);
 
 //sys.set_wifi_sta_on();
 //Serial.println(sys.get_node_mac());
