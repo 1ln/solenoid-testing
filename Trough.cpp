@@ -7,10 +7,10 @@ _output = output_pin;
 
 _serial_activated = false;
 
-_pins = input_pins;
+//_pins = input_pins;
 _num_pins = num_pins;
 _count = 0;
-_filter_results[num_pins];
+_filter_results[_num_pins];
 filter = new Filter();
 
 _kickout_ir_pin = kickout_ir_pin;

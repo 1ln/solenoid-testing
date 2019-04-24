@@ -12,7 +12,6 @@ public:
 
 Trough(uint8_t *input_pins,uint8_t num_pins,uint8_t output,uint8_t kickout_ir_pin,uint8_t jam_ir_pin);
 
-//Filter filter;
 Filter *filter;
 Filter jam_filter;
 Filter kickout_filter;
