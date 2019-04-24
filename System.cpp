@@ -11,17 +11,17 @@ _res = 8;
 }
 
 void System::set_wifi_sta_on() {
-#ifdef PBLIB_ESP32
-WiFi.mode(WIFI_MODE_STA);
-#endif
+//#ifdef PBLIB_ESP32
+//WiFi.mode(WIFI_MODE_STA);
+//#endif
 }
 
 String System::get_node_mac(void) {
-#ifdef ESP32
-return String(WiFi.macAddress());
-#else 
+//#ifdef ESP32
+//return String(WiFi.macAddress());
+//#else 
 return String("ESP32");
-#endif
+//#endif
 }
 
 void System::set_pin_pwm(uint8_t pin) {

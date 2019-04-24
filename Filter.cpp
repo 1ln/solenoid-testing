@@ -13,6 +13,7 @@ _input = HIGH;
 _debounce_clock = 0;
 _count = 0;
 _edge_detected = false;
+_range_millis = 15;
 
 _ir_input = 0;
 _ir_value = 0;
@@ -40,11 +41,15 @@ return _edge_status;
 
 }
 
-bool Filter::detect_edge(uint8_t pin,unsigned long range_millis) {
+void Filter::set_edge_millis(unsigned long range_millis) {
+_range_millis = range_millis;
+}
+
+bool Filter::detect_edge(uint8_t pin) {
 
 _input = digitalRead(pin);
 
-//if(_input == LOW) {
+//if(_input == 0) {
 //Serial.println("test");
 //}
 
@@ -53,7 +58,7 @@ if(_input != _last_edge) {
 _debounce_clock = millis();
 }
 
-if((millis() - _debounce_clock) > range_millis) {
+if((millis() - _debounce_clock) > _range_millis) {
 
      if(_input != _current_edge) {
      _current_edge = _input;

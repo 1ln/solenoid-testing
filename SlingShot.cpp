@@ -16,7 +16,7 @@ _serial_activated = true;
 
 void SlingShot::activate() {
 
-_input_filter = filter.detect_edge(_input,12);
+_input_filter = filter.detect_edge(_input);
 
 if(_input_filter == true) {
 solenoid.on_pwm();

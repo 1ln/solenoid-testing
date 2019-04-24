@@ -42,7 +42,7 @@ _count = 0;
 
 for(int i = 0; i < _num_pins; ++i) {
 
-_filter_results[i] = filter[i].detect_edge(_pins[i],15);
+_filter_results[i] = filter[i].detect_edge(_pins[i]);
 
     if(_filter_results[i] == true) {
     _count++;
