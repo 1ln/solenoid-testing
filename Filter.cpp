@@ -11,7 +11,7 @@ _current_edge = HIGH;
 _last_edge = HIGH;
 _input = HIGH;
 _debounce_clock = 0;
-_count = 0;
+//_count = 0;
 _edge_detected = false;
 _range_millis = 15;
 
@@ -66,7 +66,7 @@ if((millis() - _debounce_clock) > _range_millis) {
          if(_input == LOW) {
          //Serial.println("test");
          _edge_detected = true;
-         _count++;
+         //_count++;
          } else {
          _edge_detected = false;
          } 
@@ -117,9 +117,9 @@ return _ir_value;
 }
 
 int Filter::get_count() {
-return _count;
+//return _count;
 }
 
 void Filter::reset_count() {
-_count = 0;
+//_count = 0;
 }

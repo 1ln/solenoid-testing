@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "WiFi.h"
 
-#define PBLIB_ESP32
+//#define PBLIB_ESP32
 
 class System {
 
@@ -27,7 +27,7 @@ private:
 uint8_t _channel;
 double _freq;
 uint8_t _res;
-uint8_t _pin;
+//uint8_t _pin;
 
 };
 

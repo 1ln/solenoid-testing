@@ -14,20 +14,20 @@ _pin = 0;
 
 void Solenoid::on_pwm() {
 
-#ifdef PBLIB_ESP32
+//#ifdef PBLIB_ESP32
 ledcWrite(_channel,_pwm);
-#else
-analogWrite(_pin,_pwm);
-#endif
+//#else
+//analogWrite(_pin,_pwm);
+//#endif
 }
 
 void Solenoid::off_pwm() {
-#ifdef PBLIB_ESP32
+//#ifdef PBLIB_ESP32
 ledcWrite(_channel,0);
 _reduce_pwm = false;
-#else
-analogWrite(_pin,0);
-#endif
+//#else
+//analogWrite(_pin,0);
+//#endif
 }
 
 void Solenoid::set_pin(uint8_t pin) {
@@ -65,17 +65,17 @@ _reduce_pwm = true;
 }
 
 if(_reduce_pwm == true) {
-#ifdef PBLIB_ESP32
+//#ifdef PBLIB_ESP32
 ledcWrite(_channel,_pwm_reduce);
-#else
-analogWrite(_pin,_pwm_reduce);
-#endif
+//#else
+//analogWrite(_pin,_pwm_reduce);
+//#endif
 } else {
-#ifdef PBLIB_ESP32
+//#ifdef PBLIB_ESP32
 ledcWrite(_channel,_pwm);
-#else
-analogWrite(_pin,_pwm);
-#endif
+//#else
+//analogWrite(_pin,_pwm);
+//#endif
 }
 
 }

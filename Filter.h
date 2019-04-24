@@ -30,7 +30,7 @@ uint8_t _input;
 uint8_t _current_edge;
 uint8_t _last_edge;
 unsigned long _debounce_clock;
-unsigned int _count;
+//unsigned int _count;
 unsigned long _range_millis;
 
 bool _ir_value;

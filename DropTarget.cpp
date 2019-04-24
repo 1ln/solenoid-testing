@@ -5,7 +5,7 @@ DropTarget::DropTarget(uint8_t *input_pins,uint8_t num_pins,uint8_t output_pin) 
 
 _output = output_pin;
 _serial_activated = false;
-_pins = input_pins;
+//_pins = input_pins;
 _num_pins = num_pins;
 _filter_results[_num_pins];
 filter = new Filter();
