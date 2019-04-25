@@ -38,7 +38,11 @@ return _kickout;
 
 uint8_t Trough::inv_count() {
 
-_count = 0;
+//if(kickout_ir_active() == true) {
+//_count = 1;
+//} else {
+//_count = 0;
+//}
 
 for(int i = 0; i < _num_pins; ++i) {
 
@@ -48,9 +52,11 @@ _filter_results[i] = filter[i].detect_edge(_pins[i]);
     _count++;
     }
 
+
 }
 
 return _count;
+
 }
 
 void Trough::loop_activate() {

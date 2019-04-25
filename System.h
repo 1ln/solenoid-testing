@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "WiFi.h"
 
-//#define PBLIB_ESP32
+#define PBLIB_ESP32
 
 class System {
 

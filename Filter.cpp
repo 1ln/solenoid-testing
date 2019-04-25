@@ -57,7 +57,7 @@ if(_input != _last_edge) {
 _debounce_clock = millis();
 }
 
-if((millis() - _debounce_clock) > 15) {
+if((millis() - _debounce_clock) > _range_millis) {
 
      if(_input != _current_edge) {
      _current_edge = _input;
@@ -105,8 +105,7 @@ return _ir_value;
 bool Filter::ir_digital_read(uint8_t pin) {
 
 _ir_input = digitalRead(pin);
-
-if(_ir_input > _bit_value) {
+if(_ir_input <= _bit_value) {
 _ir_value = true;
 } else {
 _ir_value = false;
