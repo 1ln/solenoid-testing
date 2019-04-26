@@ -2,10 +2,7 @@
 #define pblib_H
 
 #include "Arduino.h"
-#include "Wire.h"
 #include "SPI.h"
-
-#include "FastLED.h"
 #include "WiFi.h"
 
 #include "Solenoid.h"
@@ -18,5 +15,6 @@
 #include "SlingShot.h"
 #include "Kicker.h"
 #include "DropTarget.h"
+#include "Scoop.h"
 
 #endif
