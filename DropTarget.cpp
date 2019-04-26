@@ -23,7 +23,6 @@ void DropTarget::coil_activation_listener() {
 
     if(inv_targets_activated() >= _num_pins) {
     solenoid.on_pwm();
-    Serial.println("test");
     } else {
     solenoid.off_pwm();
     }

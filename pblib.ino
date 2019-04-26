@@ -3,15 +3,15 @@
 uint8_t inputs_pullup[] = { 22,14,23,26,5,16};
 uint8_t outputs[] = { 18,21 };
 
-
 System sys;
 
-uint8_t tr_switches[] = { 22,14,23 };
+//uint8_t tr_switches[] = { 22,14,23 };
 //uint8_t dt_switches[] = { 22,14,23 };
 
-Flipper flipper_left(16,18);
-Trough trough(tr_switches,3,21,26,5);
+//Flipper flipper_left(16,18);
+//Trough trough(tr_switches,3,21,26,5);
 //DropTarget drop_target(dt_switches,3,18);
+Kicker kicker(22,18);
 
 void setup() {
 
@@ -27,7 +27,8 @@ sys.set_pins_pwm(outputs,2);
 
 void loop() {
 
-flipper_left.activate();
-Serial.println(trough.inv_count());
+//flipper_left.activate();
+//Serial.println(trough.inv_count());
+kicker.coil_active();
 //Serial.println(drop_target.inv_targets_activated());
 }
