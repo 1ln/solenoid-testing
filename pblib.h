@@ -2,7 +2,6 @@
 #define pblib_H
 
 #include "Arduino.h"
-#include "SPI.h"
 #include "WiFi.h"
 
 #include "Solenoid.h"

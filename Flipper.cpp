@@ -1,18 +1,29 @@
 #include "Arduino.h"
 #include "Flipper.h"
 
-Flipper::Flipper(uint8_t input_pin,uint8_t output_pin) {
+Flipper::Flipper(uint8_t input_pin,uint8_t output_pin,const Configure &set_config) {
 
 _input = input_pin;
 _output = output_pin;
 _input_filter = false;
-_serial_activated = false;
+_onboard_address = set_config.onboard_address;
+_serial_print = set_config.serial_print;
+_failsafe = set_config.failsafe;
 
 }
 
-void Flipper::serial_activate() {
-_serial_activated = true;
+void Flipper::serial_print(bool serial_print) {
+_serial_print = serial_print;
 }
+
+void Flipper::onboard_address(uint16_t onboard_address) {
+_onboard_address = onboard_address;
+}
+
+void Flipper::failsafe(bool failsafe) {
+_failsafe = failsafe;
+}
+
 
 void Flipper::activate() {
 
@@ -24,9 +35,9 @@ solenoid.on_pwm_reduce();
 solenoid.off_pwm();
 }
 
-if(_serial_activated == true) {
+if(_serial_print == true) {
     if(filter.edge_status(_input_filter) == true) {
-    //Serial.print("test");
+    Serial.print("test");
     }
 }
 
