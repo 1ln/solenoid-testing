@@ -17,15 +17,10 @@ void setup() {
 
 Serial.begin(115200);
 
-//pinMode(16,INPUT_PULLUP);
-//pinMode(14,INPUT_PULLUP);
-//pinMode(23,INPUT_PULLUP);
-//sys.set_pins_input(inputs,2);
 //sys.set_esp32_pwm_config(0,5000,8);
 sys.set_pins_input_pullup(inputs_pullup,6);
 sys.set_pins_pwm(outputs,2);
-//sys.set_pin_pwm(18);
-//delay(2000);
+
 //sys.set_wifi_sta_on();
 //Serial.println(sys.get_node_mac());
 }
@@ -34,7 +29,5 @@ void loop() {
 
 flipper_left.activate();
 Serial.println(trough.inv_count());
-//Serial.println(trough.kickout_ir_active());
 //Serial.println(drop_target.inv_targets_activated());
-//trough.kickout_ir_active();
 }

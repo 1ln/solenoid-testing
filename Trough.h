@@ -40,6 +40,7 @@ bool _filter_results[];
 uint8_t _jam_ir_pin;
 bool _jam;
 
+bool _filter_kickout_ir;
 uint8_t _kickout_ir_pin;
 bool _kickout;
 

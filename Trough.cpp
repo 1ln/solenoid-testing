@@ -12,6 +12,7 @@ _num_pins = num_pins;
 _count = 0;
 _filter_results[_num_pins];
 filter = new Filter();
+_filter_kickout_ir = false;
 
 _kickout_ir_pin = kickout_ir_pin;
 _jam_ir_pin = jam_ir_pin;
@@ -28,8 +29,10 @@ _serial_activated = true;
 
 bool Trough::kickout_ir_active() {
 
-if(kickout_filter.ir_digital_read(_kickout_ir_pin) == true) {
+_filter_kickout_ir = kickout_filter.ir_digital_read(_kickout_ir_pin);
+if(_filter_kickout_ir == true) {
 _kickout = true;
+Serial.println("test");
 } else {
 _kickout = false;
 }
@@ -38,11 +41,11 @@ return _kickout;
 
 uint8_t Trough::inv_count() {
 
-//if(kickout_ir_active() == true) {
-//_count = 1;
-//} else {
-//_count = 0;
-//}
+if(kickout_ir_active() == true) {
+_count = 1;
+} else {
+_count = 0;
+}
 
 for(int i = 0; i < _num_pins; ++i) {
 
@@ -51,12 +54,9 @@ _filter_results[i] = filter[i].detect_edge(_pins[i]);
     if(_filter_results[i] == true) {
     _count++;
     }
-
-
 }
 
 return _count;
-
 }
 
 void Trough::loop_activate() {
