@@ -7,6 +7,7 @@
 #include "Solenoid.h"
 #include "Filter.h"
 #include "System.h"
+#include "SerialTransfer.h"
 #include "DelayState.h"
 #include "Flipper.h"
 #include "Trough.h"

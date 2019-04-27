@@ -8,6 +8,7 @@ _output = output_pin;
 _input_filter = false;
 _onboard_address = set_config.onboard_address;
 _serial_print = set_config.serial_print;
+_serial_message = set_config.serial_message;
 _failsafe = set_config.failsafe;
 
 }
@@ -37,7 +38,7 @@ solenoid.off_pwm();
 
 if(_serial_print == true) {
     if(filter.edge_status(_input_filter) == true) {
-    Serial.print("test");
+    serial.transmit(_serial_message);
     }
 }
 

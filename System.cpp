@@ -6,21 +6,25 @@ System::System() {
 _channel = 0;
 _freq = 5000;
 _res = 8;
+_hall_value = 0;
+
+_pin = 0;
 
 }
 
-void System::set_wifi_sta_on() {
 #ifdef PBLIB_ESP32
+
+void System::set_wifi_sta_on() {
 WiFi.mode(WIFI_MODE_STA);
-#endif
 }
 
 String System::get_node_mac(void) {
-#ifdef ESP32
 return String(WiFi.macAddress());
-#else 
-return String("wifi esp32 undefined");
-#endif
+}
+
+int System::read_hall_sensor() {
+_hall_value = hallRead();
+return _hall_value;
 }
 
 void System::set_esp32_pwm_config(uint8_t channel,double freq,uint8_t res) {
@@ -28,6 +32,27 @@ _channel = channel;
 _freq = freq;
 _res = res;
 }
+
+void System::bluetooth_connect() {
+
+BLEDevice::init("test");
+BLEServer *btServer = BLEDevice::createServer();
+BLEService *btService = btServer->createService(SERVICE_UUID);
+
+BLECharacteristic *btCharacteristic = btService->createCharacteristic(
+
+CHARACTERISTIC_UUID,
+BLECharacteristic::PROPERTY_READ | BLECharacteristic::PROPERTY_WRITE );
+
+btCharacteristic->setValue("testing!");
+btService->start();
+
+BLEAdvertising *btAdvertising = btServer->getAdvertising();
+btAdvertising->start();
+
+} 
+
+#endif
 
 void System::set_pins_pwm(uint8_t *pins,uint8_t num_pins) {
 
@@ -55,4 +80,10 @@ pinMode(*pins,INPUT);
 pins++;
 }
 
+}
+
+uint8_t System::set_system_button(uint8_t pin) {
+_pin = pin;
+pinMode(_pin,INPUT_PULLUP);
+return _pin;
 }

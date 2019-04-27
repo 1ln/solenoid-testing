@@ -7,9 +7,9 @@ System sys;
 
 //uint8_t tr_switches[] = { 22,14,23 };
 //uint8_t dt_switches[] = { 22,14,23 };
-const Configure flipper_config = { 2,true,false };
+const Configure left_flipper_config = { 2,true,"left_flipper",false };
 
-Flipper flipper_left(16,18,flipper_config);
+Flipper flipper_left(16,18,left_flipper_config);
 //Trough trough(tr_switches,3,21,26,5);
 //DropTarget drop_target(dt_switches,3,18);
 //Kicker kicker(22,18);
@@ -17,7 +17,6 @@ Flipper flipper_left(16,18,flipper_config);
 void setup() {
 
 Serial.begin(115200);
-
 //sys.set_esp32_pwm_config(0,5000,8);
 sys.set_pins_input_pullup(inputs_pullup,6);
 sys.set_pins_pwm(outputs,2);
