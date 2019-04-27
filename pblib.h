@@ -16,5 +16,6 @@
 #include "Kicker.h"
 #include "DropTarget.h"
 #include "Scoop.h"
+#include "PlayfieldSwitch.h"
 
 #endif
