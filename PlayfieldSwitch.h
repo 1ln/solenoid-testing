@@ -9,14 +9,13 @@ class PlayfieldSwitch {
 
 public:
 
-PlayfieldSwitch(uint8_t input,const Configure &set_config);
+PlayfieldSwitch(uint8_t input);
 
 Filter filter;
 SerialTransfer serial;
 
-void serial_print(bool serial_print);
+void serial_active(bool activate);
 void message(const char * message);
-
 void switch_active();
 
 private:

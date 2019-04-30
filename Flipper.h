@@ -16,24 +16,25 @@ Filter filter;
 Solenoid solenoid;
 SerialTransfer serial;
 
-void pwm(uint8_t pwm);
-void pwm_hold(uint8_t pwm_hold);
-void serial_print(const char * serial_print);
-void failsafe(bool failsafe);
-void activate();
+void pwm_value(uint32_t pwm_value);
+void pwm_hold(uint32_t pwm_hold);
+void initial_voltage_millis(unsigned long initial_voltage_millis );
+bool serial_active(bool active);
+void message(const char * message);
+void coil_active();
 
 private:
 
 uint8_t _input;
 uint8_t _output;
 
-bool _serial_print;
-char const * _serial_message;
+bool _serial_active;
+char const * _message;
 
-bool _failsafe;
+uint32_t _pwm;
+uint32_t _pwm_hold;
 
-uint8_t _pwm = pwm;
-uint8_t _pwm_hold = _pwm_hold;
+unsigned long _millis;
 
 bool _input_filter;
 

@@ -13,35 +13,40 @@ _pwm_hold = 235;
 
 }
 
-void Flipper::serial_print(bool serial_print) {
-_serial_print = serial_print;
-}
-
-void Flipper::failsafe(bool failsafe) {
-_failsafe = failsafe;
-}
-
-void Flipper::pwm(uint8_t pwm) {
-_pwm = pwm;
+void Flipper::message(const char * message) {
+_message = message;
 } 
 
-void Flipper::pwm_hold(uint8_t pwm_hold) {
+bool Flipper::serial_active(bool active) {
+_serial_active = active;
+return _serial_active;
+}
+
+void Flipper::pwm_value(uint32_t pwm_value) {
+_pwm = pwm_value;
+} 
+
+void Flipper::pwm_hold(uint32_t pwm_hold) {
 _pwm_hold = pwm_hold;
 }
 
-void Flipper::activate() {
+void Flipper::initial_voltage_millis(unsigned long initial_voltage_millis) {
+_millis = initial_voltage_millis;
+}
+
+void Flipper::coil_active() {
 
 _input_filter = filter.detect_edge(_input);
 
 if(_input_filter == true) {
-solenoid.on_pwm_reduce(_pwm,_pwm_hold);
+solenoid.on_pwm_reduce(_pwm,_pwm_hold,_millis);
 } else {
 solenoid.off_pwm();
 }
 
-if(_serial_print == true) {
+if(_serial_active == true) {
     if(filter.edge_status(_input_filter) == true) {
-    serial.transmit(_serial_message);
+    serial.transmit(_message);
     }
 }
 

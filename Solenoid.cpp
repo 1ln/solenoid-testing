@@ -9,7 +9,7 @@ _pin = 0;
 
 }
 
-void Solenoid::on_pwm(uint8_t pwm) {
+void Solenoid::on_pwm(uint32_t pwm) {
 ledcWrite(_channel,pwm);
 }
 

@@ -11,11 +11,9 @@
 #include "DelayState.h"
 #include "Flipper.h"
 #include "Trough.h"
-#include "PopBumper.h"
-#include "SlingShot.h"
+#include "Bumper.h"
 #include "Kicker.h"
 #include "DropTarget.h"
-#include "Scoop.h"
 #include "PlayfieldSwitch.h"
 
 #endif

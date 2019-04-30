@@ -23,7 +23,7 @@ void Bumper::pwm(uint32_t pwm) {
 _pwm = pwm;
 }
 
-void Bumper::activate() {
+void Bumper::coil_activate() {
 
 _input_filter = filter.detect_edge(_input);
 
