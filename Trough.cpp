@@ -7,7 +7,6 @@ _output = output_pin;
 
 _serial_activated = false;
 
-//_pins = input_pins;
 _num_pins = num_pins;
 _count = 0;
 _filter_results[_num_pins];

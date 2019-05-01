@@ -18,7 +18,7 @@ SerialTransfer serial;
 
 void coil_active();
 void serial_activate();
-void pwm(uint32_t pwm); 
+void pwm_value(uint32_t pwm_value); 
 
 uint8_t inv_targets_activated();
 

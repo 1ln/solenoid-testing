@@ -43,22 +43,22 @@ _message = message;
 
 void Kicker::coil_active() {
 
-if(_ir == true) {
+//if(_ir == true) {
 
-_input_filter = filter.edge_status(_input);
+//_input_filter = filter.edge_status(_input);
 
-    if(_input_filter == true) {
-    _millis_rec = millis();
-    } 
+    //if(_input_filter == true) {
+    //_millis_rec = millis();
+    //} 
 
-} else {
+//} else {
 _input_filter = filter.detect_edge(_input);
 
     if(filter.edge_status(_input_filter == true)) {
     _millis_rec = millis();
     }
 
-}
+//}
 
 if(millis() <= _millis_wait + _millis_rec) {
 

@@ -46,6 +46,6 @@ return _count;
 
 }
 
-void DropTarget::pwm(uint32_t pwm) {
-_pwm = pwm;
+void DropTarget::pwm_value(uint32_t pwm_value) {
+_pwm = pwm_value;
 }

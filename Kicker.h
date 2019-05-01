@@ -31,8 +31,8 @@ uint8_t _output;
 bool _serial_activated;
 bool _input_filter;
 bool _ir;
-bool _millis_rec;
 
+unsigned long _millis_rec;
 unsigned long _millis_wait;
 unsigned long _millis_coil_on;
 

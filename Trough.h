@@ -4,7 +4,7 @@
 #include "Arduino.h"
 #include "Filter.h"
 #include "Solenoid.h"
-//#include "SerialMessage.h"
+#include "SerialTransfer.h"
 
 class Trough {
 
@@ -16,6 +16,7 @@ Filter *filter;
 Filter *ir_filter;
 Filter jam_filter;
 Filter kickout_filter;
+SerialTransfer serial;
 Solenoid solenoid;
 
 uint8_t inv_count();

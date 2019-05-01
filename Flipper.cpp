@@ -22,15 +22,9 @@ _serial_active = active;
 return _serial_active;
 }
 
-void Flipper::pwm_value(uint32_t pwm_value) {
+void Flipper::hold_config(uint32_t pwm_value, uint32_t pwm_hold,unsigned long initial_voltage_millis) {
 _pwm = pwm_value;
-} 
-
-void Flipper::pwm_hold(uint32_t pwm_hold) {
 _pwm_hold = pwm_hold;
-}
-
-void Flipper::initial_voltage_millis(unsigned long initial_voltage_millis) {
 _millis = initial_voltage_millis;
 }
 

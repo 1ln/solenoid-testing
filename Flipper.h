@@ -16,9 +16,7 @@ Filter filter;
 Solenoid solenoid;
 SerialTransfer serial;
 
-void pwm_value(uint32_t pwm_value);
-void pwm_hold(uint32_t pwm_hold);
-void initial_voltage_millis(unsigned long initial_voltage_millis );
+void hold_config(uint32_t pwm_value,uint32_t pwm_hold,unsigned long initial_voltage_millis);
 bool serial_active(bool active);
 void message(const char * message);
 void coil_active();
