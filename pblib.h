@@ -2,12 +2,15 @@
 #define pblib_H
 
 #include "Arduino.h"
-#include "WiFi.h"
+#include "CAN.h"
+#include "SPI.h"
+#include "SD.h"
 
 #include "Solenoid.h"
 #include "Filter.h"
-#include "System.h"
+#include "PinConfig.h"
 #include "SerialTransfer.h"
+#include "CANSystem.h"
 #include "DelayState.h"
 #include "Flipper.h"
 #include "Trough.h"
