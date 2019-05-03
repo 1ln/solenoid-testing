@@ -20,9 +20,9 @@ _res = res;
 void PinConfig::set_pins_pwm(uint8_t *pins,uint8_t num_pins) {
 
 for(int i = 0; i < num_pins; ++i) {
-ledcSetup(_channel,_freq,_res);
-ledcAttachPin(*pins,_channel);
-//pinMode(*pins,OUTPUT);
+//ledcSetup(_channel,_freq,_res);
+//ledcAttachPin(*pins,_channel);
+pinMode(*pins,OUTPUT);
 pins++;
 } 
 }

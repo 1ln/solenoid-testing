@@ -3,6 +3,7 @@
 
 #include "Arduino.h"
 #include "DelayState.h"
+#include "CAN.h"
 
 class CANSystem {
 
@@ -10,18 +11,19 @@ public:
 
 CANSystem();
 
-void begin();
-void send_packet(int packet_id,constant char * packet,int num_chars);
+void begin(long kbps);
+void send_packet(int packet_id,const char * packet,uint8_t num_chars);
 void rec_packet();
 
 private:
 
-const char _packets[];
+char * _packet_rec;
+char _packets[];
 const char * _packet;
-int num_chars;
-int packet_size;
-int packet_id;
-
+int _num_chars;
+int _packet_size;
+int _packet_id; 
+long _kbps;
 
 };
 

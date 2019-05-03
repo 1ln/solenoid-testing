@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 #include "DelayState.h"
-#include "System.h"
+#include "PinConfig.h"
 
 class Solenoid {
 
