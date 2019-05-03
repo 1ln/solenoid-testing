@@ -18,7 +18,7 @@ SerialTransfer serial;
 
 void serial_activate();
 void coil_active();
-void pwm_value(uint32_t pwm_value);
+void pwm_value(uint8_t pwm_value);
 void millis_config(unsigned long millis_wait_amt,unsigned long millis_coil_on_amt);
 void message(const char * message);
 void ir_device(bool infrared);
@@ -38,7 +38,7 @@ unsigned long _millis_coil_on;
 
 const char * _message; 
 
-uint32_t _pwm;
+uint8_t _pwm;
 
 };
 

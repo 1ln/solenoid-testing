@@ -58,16 +58,16 @@ _filter_results[i] = filter[i].detect_edge(_pins[i]);
 return _count;
 }
 
-void Trough::pwm_value(uint32_t pwm_value) {
+void Trough::pwm_value(uint8_t pwm_value) {
 _pwm = pwm_value;
 }
 
 void Trough::loop_active() {
 
 if((inv_count() >= _num_pins) && _jam != true) {
-solenoid.on_pwm(_pwm);
+solenoid.on_pwm(_output,_pwm);
 } else {
-solenoid.off_pwm();
+solenoid.off_pwm(_output);
 }
 
 }
@@ -84,7 +84,7 @@ return _jam;
 
 void Trough::activate_solenoid() {
 
-solenoid.on_pwm(_pwm);
-solenoid.off_pwm();
+solenoid.on_pwm(_output,_pwm);
+solenoid.off_pwm(_output);
 
 }

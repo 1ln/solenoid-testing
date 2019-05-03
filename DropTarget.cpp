@@ -22,9 +22,9 @@ _serial_activated = true;
 void DropTarget::coil_active() {
 
     if(inv_targets_activated() >= _num_pins) {
-    solenoid.on_pwm(_pwm);
+    solenoid.on_pwm(_output,_pwm);
     } else {
-    solenoid.off_pwm();
+    solenoid.off_pwm(_output);
     }
     
 }

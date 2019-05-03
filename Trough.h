@@ -25,7 +25,7 @@ void loop_active();
 bool jam_ir_active();
 void activate_solenoid();
 bool kickout_ir_active();
-void pwm_value(uint32_t pwm_value);
+void pwm_value(uint8_t pwm_value);
 
 private:
 
@@ -47,7 +47,7 @@ bool _filter_kickout_ir;
 uint8_t _kickout_ir_pin;
 bool _kickout;
 
-uint32_t _pwm;
+uint8_t _pwm;
 };
 
 #endif

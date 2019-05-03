@@ -19,14 +19,14 @@ SerialTransfer serial;
 void serial_activate();
 void coil_activate();
 void message(const char * message);
-void pwm(uint32_t pwm);
+void pwm(uint8_t pwm);
 
 private:
 
 uint8_t _input;
 uint8_t _output;
 
-uint32_t _pwm;
+uint8_t _pwm;
 
 const char * _message;
 

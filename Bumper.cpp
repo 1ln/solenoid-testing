@@ -19,7 +19,7 @@ void Bumper::message(const char * message) {
 _message = message;
 } 
 
-void Bumper::pwm(uint32_t pwm) {
+void Bumper::pwm(uint8_t pwm) {
 _pwm = pwm;
 }
 
@@ -28,9 +28,9 @@ void Bumper::coil_activate() {
 _input_filter = filter.detect_edge(_input);
 
 if(_input_filter == true) {
-solenoid.on_pwm(_pwm);
+solenoid.on_pwm(_output,_pwm);
 } else {
-solenoid.off_pwm();
+solenoid.off_pwm(_output);
 }
 
 if(_serial_activated == true) {

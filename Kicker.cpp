@@ -22,7 +22,7 @@ void Kicker::serial_activate() {
 _serial_activated = true;
 }
 
-void Kicker::pwm_value(uint32_t pwm_value) { 
+void Kicker::pwm_value(uint8_t pwm_value) { 
 _pwm = pwm_value;
 }
 
@@ -63,11 +63,11 @@ _input_filter = filter.detect_edge(_input);
 if(millis() <= _millis_wait + _millis_rec) {
 
     if(millis() >= ((_millis_wait + _millis_rec) - _millis_coil_on)) {
-    solenoid.on_pwm(_pwm);
+    solenoid.on_pwm(_output,_pwm);
     }
 
 } else {
-solenoid.off_pwm();
+solenoid.off_pwm(_output);
 }
 
 if(_serial_activated == true) {
