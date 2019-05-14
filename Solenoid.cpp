@@ -1,25 +1,29 @@
 #include "Arduino.h"
-#include "Solenoid2.h"
+#include "Solenoid.h"
 
-Solenoid2::Solenoid2(uint8_t *input_pins,uint8_t num_pins,uint8_t output_pin) {
+Solenoid::Solenoid(uint8_t *input_pins,uint8_t num_pins,uint8_t output_pin) {
 
 _output = output_pin;
 _serial_activated = false;
 _num_pins = num_pins;
 _filter_results[_num_pins];
+
 filter = new Filter();
+
 _count = 0;
 _pwm = 0;
+_millis_rec = 0;
+_reduced_modulation = false;
 
 memcpy(&_pins,&input_pins,sizeof _pins);
 
 }
 
-void Solenoid2::setSerialActivate() {
+void Solenoid::setSerialActivate() {
 _serial_activated = true;
 }
 
-void Solenoid2::activateOnInputs() {
+void Solenoid::activateOnInputs() {
 
     if(numberOfInputsLow() >= _num_pins) {
     analogWrite(_output,_pwm);
@@ -29,16 +33,16 @@ void Solenoid2::activateOnInputs() {
     
 }
 
-void Solenoid2::activeOnInputReducePWM(uint32_t pwm_reduce,unsigned long millis_hold) {
+void Solenoid::activeOnInputReducePWM(uint32_t pwm_reduce,unsigned long millis_hold) {
     _input_filter = filter.detect_edge(_input);
 
 if(_input_filter == true) {
 
     if(delay_state.wait_interval(millis_hold) == true) {
-    _reduce_pwm = true;
+    _reduced_modulation = true;
     }
 
-    if(_reduce_pwm == true) {
+    if(_reduced_modultion == true) {
     analogWrite(_input_pin,pwm_reduce);
     } else {
     analogWrite(_input_pin,_pwm);
@@ -54,13 +58,13 @@ analogWrite(_input_pin,0);
 
 
 
-void Solenoid2::activateOnInputWait(unsigned long millis_wait,unsigned long millis_coil_on) {
+void Solenoid::activateOnInputWait(unsigned long millis_wait,unsigned long millis_coil_on) {
 
 _input_filter = filter.detect_edge(_input);
 
-    if(filter.edge_status(_input_filter == true)) {
-    _millis_rec = millis();
-    }
+if(filter.edge_status(_input_filter == true)) {
+_millis_rec = millis(); 
+} 
 
 if(millis() <= millis_wait + _millis_rec) {
 
@@ -80,7 +84,7 @@ if(_serial_activated == true) {
 
 }
 
-uint8_t Solenoid2::numberOfInputsLow() {
+uint8_t Solenoid::numberOfInputsLow() {
 
 _count = 0;
 
@@ -97,6 +101,6 @@ return _count;
 
 }
 
-void Solenoid2::pwm_value(uint32_t pwm_value) {
+void Solenoid::setPwmValue(uint32_t pwm_value) {
 _pwm = pwm_value;
 }
