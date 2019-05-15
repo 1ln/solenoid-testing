@@ -12,17 +12,17 @@ public:
 
 Solenoid(uint8_t *input_pins,uint8_t num_pins,uint8_t output);
 
-Filter *filter;
+Filter *filter_group;
+Filter filter;
 SerialTransfer serial;
 DelayState delay_state;
  
-//void activateOnInput();
-void activateOnInputReducePWM(uint32_t pwm_reduce,unsigned long millis_hold); 
-void activateOnInputWait(unsigned long millis_wait,unsigned long millis_coil_on);
-void activateOnInputs();
+void reducePwmAfterDelay(uint32_t pwm_reduce,unsigned long millis_hold); 
+void activateOnceAfterDelay(unsigned long millis_wait,unsigned long millis_coil_on);
+void activateOnceOnInputsLow();
 
-void setSerialActive();
-void setPwmValue(uint32_t pwm_value); 
+void serialActive();
+void pwmValue(uint32_t pwm_value); 
 
 uint8_t numberOfInputsLow();
 
@@ -37,6 +37,9 @@ uint8_t _output;
 
 bool _serial_activated;
 bool _filter_results[];
+bool _input_filter;
+
+const char * _message;
 
 unsigned long _millis_rec;
 

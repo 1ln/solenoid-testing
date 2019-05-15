@@ -8,7 +8,7 @@ _serial_activated = false;
 _num_pins = num_pins;
 _filter_results[_num_pins];
 
-filter = new Filter();
+filter_group = new Filter();
 
 _count = 0;
 _pwm = 0;
@@ -19,11 +19,10 @@ memcpy(&_pins,&input_pins,sizeof _pins);
 
 }
 
-void Solenoid::setSerialActivate() {
 _serial_activated = true;
 }
 
-void Solenoid::activateOnInputs() {
+void Solenoid::activateOnceOnInputsLow() {
 
     if(numberOfInputsLow() >= _num_pins) {
     analogWrite(_output,_pwm);
@@ -33,7 +32,8 @@ void Solenoid::activateOnInputs() {
     
 }
 
-void Solenoid::activeOnInputReducePWM(uint32_t pwm_reduce,unsigned long millis_hold) {
+void Solenoid::reducePwmAfterDelay(uint32_t pwm_reduce,unsigned long millis_hold) {
+   
     _input_filter = filter.detect_edge(_input);
 
 if(_input_filter == true) {
@@ -42,7 +42,7 @@ if(_input_filter == true) {
     _reduced_modulation = true;
     }
 
-    if(_reduced_modultion == true) {
+    if(_reduced_modulation == true) {
     analogWrite(_input_pin,pwm_reduce);
     } else {
     analogWrite(_input_pin,_pwm);
@@ -58,7 +58,7 @@ analogWrite(_input_pin,0);
 
 
 
-void Solenoid::activateOnInputWait(unsigned long millis_wait,unsigned long millis_coil_on) {
+void Solenoid::activateOnceAfterDelay(unsigned long millis_wait,unsigned long millis_coil_on) {
 
 _input_filter = filter.detect_edge(_input);
 
@@ -101,6 +101,6 @@ return _count;
 
 }
 
-void Solenoid::setPwmValue(uint32_t pwm_value) {
+void Solenoid::pwmValue(uint32_t pwm_value) {
 _pwm = pwm_value;
 }
