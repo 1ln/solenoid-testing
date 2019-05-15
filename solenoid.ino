@@ -16,12 +16,12 @@ Serial.begin(115200);
 pins.set_pins_input_pullup(inputs_pullup,6);
 pins.set_pins_pwm(outputs,1);
 
-coil_device.pwm_value(245);
+coil_device.pwmValue(245);
 
 
 }
 
 void loop() {
 
-Serial.println(drop_target.inv_targets_activated());
+Serial.println(coil_device.numberOfInputsLow());
 }

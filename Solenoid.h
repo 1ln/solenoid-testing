@@ -38,6 +38,7 @@ uint8_t _output;
 bool _serial_activated;
 bool _filter_results[];
 bool _input_filter;
+bool _reduced_modulation;
 
 const char * _message;
 

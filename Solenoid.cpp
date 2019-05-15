@@ -17,8 +17,6 @@ _reduced_modulation = false;
 
 memcpy(&_pins,&input_pins,sizeof _pins);
 
-}
-
 _serial_activated = true;
 }
 
@@ -43,14 +41,14 @@ if(_input_filter == true) {
     }
 
     if(_reduced_modulation == true) {
-    analogWrite(_input_pin,pwm_reduce);
+    analogWrite(_input,pwm_reduce);
     } else {
-    analogWrite(_input_pin,_pwm);
+    analogWrite(_input,_pwm);
     }
 
 } else {
 
-analogWrite(_input_pin,0);
+analogWrite(_input,0);
 
 }
  
@@ -90,7 +88,7 @@ _count = 0;
 
 for(int i = 0; i < _num_pins; ++i) {
 
-_filter_results[i] = filter[i].detect_edge(_pins[i]);
+_filter_results[i] = filter_group[i].detect_edge(_pins[i]);
 
 if(_filter_results[i] == true) {
 _count++;
