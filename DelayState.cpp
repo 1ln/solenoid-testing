@@ -12,7 +12,7 @@ bool DelayState::wait_interval(unsigned long interval) {
 
     if((millis() - _limit) >= interval) {
     _limit = millis();
-    Serial.println("on");
+    //Serial.println("on");
     _limit_reached = true;
     } else {
     //Serial.println("off");
