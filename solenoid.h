@@ -5,8 +5,5 @@
 
 #include "Solenoid.h"
 #include "Filter.h"
-#include "PinConfig.h"
-#include "SerialTransfer.h"
-#include "DelayState.h"
 
 #endif

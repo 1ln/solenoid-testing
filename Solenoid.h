@@ -2,21 +2,16 @@
 #define Solenoid_H
 
 #include "Arduino.h"
-#include "DelayState.h"
 #include "Filter.h"
-#include "SerialTransfer.h"
 
 class Solenoid {
 
 public:
 
 Solenoid();
-//Solenoid(uint8_t *input_pins,uint8_t num_pins,uint8_t output);
 
 Filter *filter_group;
 Filter filter;
-SerialTransfer serial;
-DelayState delay_state;
 
 void pinConfigInputsPullup(uint8_t *pins,uint8_t num_pins);
 void pinConfigInputPullup(uint8_t pin);
@@ -27,6 +22,7 @@ void activateOnceAfterDelay(unsigned long millis_wait,unsigned long millis_coil_
 void activateOnceOnInputsLow();
 
 void serialActive();
+void serialMessage(const char * message);
 void pwmValue(uint8_t pwm_value); 
 
 uint8_t numberOfInputsLow();
