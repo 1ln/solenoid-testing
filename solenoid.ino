@@ -1,6 +1,6 @@
 #include "solenoid.h"
 
-uint8_t inputs_pullup[] = {11,10,9};
+uint8_t inputs_pullup[] = {5,9,11};
 const uint8_t inp = 6;
 const uint8_t out = 12;
 
@@ -22,7 +22,7 @@ void loop() {
 
 //coil_device.activateOnceAfterDelay(2500,150);
 //coil_device.reducePwmAfterDelay(50,1500);
-
+//coil_device.numberOfInputsLow();
 //coil_device.activateOnceOnInputsLow();
 Serial.println(coil_device.numberOfInputsLow());
 }

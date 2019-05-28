@@ -30,7 +30,8 @@ void Solenoid::pinConfigInputsPullup(uint8_t *pins, uint8_t num_pins) {
 _num_pins = num_pins;
 memcpy(&_pins,&pins,sizeof _pins);
 
-for(int i = 0; i <= _num_pins-1; ++i) {
+for(int i = 0; i < _num_pins; ++i) {
+//Serial.println(i);
 pinMode(*pins,INPUT_PULLUP);
 pins++;
 }
@@ -121,11 +122,11 @@ if(_serial_activated == true) {
 uint8_t Solenoid::numberOfInputsLow() {
 
 _count = 0;
-
-for(int i = 0; i <= _num_pins-1; ++i) {
-
+//Serial.println(&_pins);
+for(int i = 0; i <= _num_pins; ++i) {
+//Serial.println(&_pins);
 _filter_results[i] = filter_group[i].detect_edge(_pins[i]);
-
+//Serial.println(_filter_results[i]);
     if(_filter_results[i] == true) {
     _count++;
     }
